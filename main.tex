@@ -17,18 +17,18 @@
   \draw[help lines,color=black!20] (current page.south west) grid[step=\gridsize] (current page.north east);
   \foreach \y in {0, ..., 20}
     {%
-      % Section
+      % Left border
+      \filldraw ([xshift=-1pt,yshift=-1pt]$(current page.south west) + (\southwestoffsetx, \southwestoffsety)
+        + (0, \gridsize *\gridgroupsize * \y)$)
+      rectangle ++(2pt, 2pt);
+      % Sidenote line
       \filldraw ($(current page.south west) + (\southwestoffsetx, \southwestoffsety)
-      + (0, \gridsize *\gridgroupsize * \y)$) circle (0.7pt);
-      % Subsection
-      \filldraw ($(current page.south west) + (\southwestoffsetx, \southwestoffsety)
-      + (1 * \gridsize * \gridgroupsize, \gridsize * \gridgroupsize * \y)$) circle (0.5pt);
-      % Subsubsection
-      \filldraw ($(current page.south west) + (\southwestoffsetx, \southwestoffsety)
-      + (2 * \gridsize * \gridgroupsize, \gridsize * \gridgroupsize * \y)$) circle (0.3pt);
-      % Midline
-      \filldraw ($(current page.south) + (0, \southwestoffsety)
-      + (10.7bp, \gridsize * \gridgroupsize * \y)$) circle (0.7pt);
+      + (1 * \gridsize + 9 * \gridsize * \gridgroupsize, \gridsize * \gridgroupsize * \y)$)
+      circle (1pt);
+      % Right border
+      \filldraw ([xshift=-1pt,yshift=-1pt]$(current page.south west) + (\southwestoffsetx, \southwestoffsety)
+        + (2 * \gridsize + 12 * \gridsize * \gridgroupsize, \gridsize * \gridgroupsize * \y)$)
+      rectangle ++(2pt, 2pt);
     }
 \end{tikzpicture}
 \end{document}
